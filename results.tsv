@@ -1,0 +1,2 @@
+"GENENAME"	"seqnames"	"start"	"end"	"width"	"strand"	"LOCATION"	"LOCSTART"	"LOCEND"	"QUERYID"	"TXID"	"CDSID"	"GENEID"	"PRECEDEID"	"FOLLOWID"	"CSQ"	"phenotype_description"	"strain_name"	"name_1006"	"goslim_goa_description"	"reactome"	"biogrid"	"rnacentral"	"rfam"	"transcript_appris"	"transcript_tsl"	"arrayexpress"
+"1"	"Aff3"	"chr1"	38561921	38561921	1	"-"	"intron"	65168	65168	2	"119199"	
