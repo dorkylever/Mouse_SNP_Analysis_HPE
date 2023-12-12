@@ -1,0 +1,14 @@
+Gene,Zyosity,Human_Freq,Allele,129,C3H,C57BL6,CD-1,FVB,NMRI
+Cdon,hm,Minor,tm1Rsk,HPE_Resistant,,HPE_Permissive,,,
+Gli2,hm,Minor,tm1Alj,,,HPE_Permissive,HPE_Resistant,,
+Lrp2,hm,Mouse_Only,tm1Her,HPE_Permissive_Mixed,,HPE_Permissive; HPE_Permissive_Mixed,HPE_Permissive,HPE_Resistant;HPE_Resistant_Mixed,
+Twsg1,hm,Mouse_Only,tm1.1Mboc,HPE_Resistant; HPE_Resistant_Mixed,, HPE_Permissive,, HPE_Resistant_Mixed,
+Six3,ht,Major,tm1Gco,HPE_Permissive_Mixed,,HPE_Permissive; HPE_Permissive_Mixed,,,HPE_Resistant
+Pgap1,hm,Mouse_Only,m1Nisw,HPE_Resistant,,HPE_Truncation; HPE_Permissive_Mixed,,,
+Pign,hm,Mouse_Only,m1Nisw,HPE_Truncation,HPE_Permissive,,,,
+B9d1,hm,Mouse_Only,tm1a(EUCOMM)Wtsi,,,HPE_Permissive,HPE_Resistant_Mixed,,
+Vax1,hm,Mouse_Only,tm1Pgr,,,HPE_Permissive,,,HPE_Resistant
+Gas1,hm,Non-Reproducible,tm1Fan,,,HPE_Permissive, HPE_Resistant_Mixed, HPE_Resistant_Mixed,
+Zic2,ht,Major,Ku,HPE_Resistant,HPE_Resistant,HPE_Permissive,,,
+Shh ,hm,Major,tm1Chg,HPE_Permissive,,HPE_Permissive,,,
+Fgf8,hm,Major,tm2.1Jyhl,,,Completely_Penetrant_Embryonic_Lethality,Incompletely_Penetrant_Embryonic_Lethality,,
