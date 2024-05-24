@@ -1,0 +1,399 @@
+---
+title: "REL-2021-Analysis"
+author: "Kyle Drover"
+date: "2024-05-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(echo = TRUE)
+
+
+.libPaths("/g/data/nm24/comp_analysis_rlib")
+
+
+library(biomaRt)
+library(VariantAnnotation)
+library(org.Mm.eg.db)
+library(TxDb.Mmusculus.UCSC.mm39.knownGene)
+library(stringr)
+
+library(rtracklayer)
+library(dplyr)
+library(tidyr)
+library(data.table)
+library(RCurl)
+
+
+m_ensembl = useEnsembl(biomart="snp",dataset="mmusculus_snp")
+
+ensembl = useEnsembl(biomart="ensembl",dataset="mmusculus_gene_ensembl")
+
+```
+
+## Universal Functions
+
+```{r}
+# annotation stuff
+get_annos <- function(csv_file_path){
+  #' Finds the appropriate column of gene IDs, 
+  #' extracts the gene_IDs and converts them to Ensemble Mouse IDs
+  
+  raw_anno <- read.csv(csv_file_path, stringsAsFactors=F)
+  
+  entrezIDs <- mapIds(org.Mm.eg.db, raw_anno$Symbol,"ENTREZID","SYMBOL")
+  
+  return(entrezIDs)
+}
+
+#All Gene Ontology
+annos <- c(get_annos("Nodal_Signalling_GO.csv"), 
+           get_annos("Sonic_HedgeHog_GO.csv"), 
+           get_annos("FGF_Signalling_GO.csv"),
+           get_annos("Pusapati_cilia_or_pathy.csv"))
+
+
+## write all annos to file:
+
+unique_annos <- annos[!duplicated(annos)]
+
+unique_annos <- unique_annos[!is.na(unique_annos)&!is.na(names(unique_annos))]
+
+gn <- names(unique_annos)
+eid <- unname(unique_annos)
+
+annos_to_file <- data.frame(
+  Gene_name = unlist(gn),
+  EntrezID = unlist(eid)
+)
+
+
+write.csv(annos_to_file, "Combined_Ontology.csv")
+
+
+## should be universal for REL-2021 and REL-1505
+SNP_filter <- function(vcf, entrez_ID_list, var_type){
+  # Filter for High Quality Variants FI(final-pass) 
+  vcf <- vcf[vcf@assays@data@listData$FI==1]
+  # Keep SNPs for genes identified in the Gene Ontology List
+  vcf <- vcf[lapply(vcf@info@listData$CSQ, function(x) strsplit(x,split="\\|")[[1]][4]) %in% names(annos)]
+  # Three different filters to Keep SNPs, only one needs to pass
+  
+  # Keep SNPs of High Impact from EnsemblVEP - these are severe impact to the protein (i.e., stop gained/lost, severe splice variants etc.,)
+  list_1 <- lapply(vcf@info@listData$CSQ, function(x) strsplit(x, split="\\|")[[1]][3]) == "HIGH"
+  
+  # Keep SNPs with high Genome Evolutionary Rate Scores (GERP) - only metric for non-protein functional prediction
+  list_2 <- lapply(vcf@info@listData$CSQ, function(x) strsplit(x, split="\\|")[[1]][39]) >= 5
+  list_2[is.na(list_2)] <- F
+  
+  # Keep SNPs with Deleteriously Predictions from SIFT
+  list_3 <- unlist(lapply(vcf@info@listData$CSQ, function(x) str_detect(x, "deleterious\\(")))
+  
+  vcf <- vcf[list_1|list_2|list_3]
+  
+  #load known all mouse genes
+  txdb <- TxDb.Mmusculus.UCSC.mm39.knownGene
+  
+  #match chromosome names to txdb
+  vcf <- renameSeqlevels(vcf, paste0("chr", seqlevels(vcf)))
+  #seqlevels(vcf)[20] <- "chrM"
+  # Locate Variants
+  loc <- locateVariants(rowRanges(vcf), txdb, AllVariants(promoter = PromoterVariants(400000, 20000), intergenic = IntergenicVariants(400000, 20000)))
+
+  #So this is a bit shit, but txdb mm39 has out of bounds so it can't find all SNPs
+  loc <- loc[!duplicated(loc$QUERYID),]
+  vcf <- vcf[row.names(info(vcf)) %in% names(loc)]
+  
+  
+  # keep consequences and gene-name from vcf
+  loc$CSQ <- unique(vcf@info@listData$CSQ)
+  
+  loc$GENENAME <- lapply(vcf@info@listData$CSQ, function(x) strsplit(x, split="\\|")[[1]][4])
+  return(loc)
+}
+
+
+BM_annotate <- function(vcf){
+  # get entrezed ID to get phenotype, reactome and regulatory region info
+  entrezIDs <- unlist(mapIds(org.Mm.eg.db, unlist(vcf$GENENAME),"ENTREZID","SYMBOL"))
+  
+  # turn the CSQ information into a dataframe
+  csq_info <- sapply(vcf$CSQ, function(x) strsplit(x,split="\\|"))
+  csq_info <- as.data.frame(t(sapply(csq_info, function(x) {
+    if (length(x)==40){
+      x <- c(x,"")
+    }
+    return(x)
+  })))
+  
+  #disgusting but it'll do
+  colnames(csq_info) <- c("Allele","Consequence","IMPACT",
+  "SYMBOL","Gene","Feature_type","Feature","BIOTYPE","EXON",
+  "INTRON","HGVSc","HGVSp","cDNA_position","CDS_position",
+  "Protein_position","Amino_acids","Codons","Existing_variation",
+  "DISTANCE","STRAND","FLAGS", "SYMBOL_SOURCE","HGNC_ID","CANONICAL",
+  "GENE_PHENO","SIFT","DOMAINS","miRNA","MAX_AF","MAX_AF_POPS","CLIN_SIG",
+  "SOMATIC","PHENO","MOTIF_NAME","MOTIF_POS","HIGH_INF_POS",
+  "MOTIF_SCORE_CHANGE","TRANSCRIPTION_FACTORS","Conservation","NMD","BLOSUM62")
+  
+  # add the  CSQ columns - should be in the same order
+  vcf <- cbind(as.data.frame(vcf), csq_info)
+  
+  # add the entrezID as a column for merging
+  vcf$entrezgene_id <- entrezIDs
+  
+  # don't know why I did this but I get the entrezgene ID again for some reason
+  tmp <- getBM(attributes=c('entrezgene_id'), values = na.omit(entrezIDs), filters = 'entrezgene_id', 
+               mart = ensembl, verbose=T)
+  
+  # Get data from Biomart but biomart is annoying cause it gets information per transcript
+  # so have have to regather and combine the values after the getBM function
+  phenos <- getBM(attributes=c('entrezgene_id','phenotype_description'), 
+                  values = tmp$entrezgene_id, filters = 'entrezgene_id', 
+                  mart = ensembl, verbose=T) %>% group_by(entrezgene_id) %>% 
+    summarise_all(list(~ paste(., collapse = ",")))
+  
+  # same thing but Gene Ontology and Reactome
+  GO <- getBM(attributes=c('entrezgene_id', 'name_1006', 'goslim_goa_description'),
+              values = tmp$entrezgene_id, filters = 'entrezgene_id', 
+              mart = ensembl, verbose=T) %>% group_by(entrezgene_id) %>% 
+    summarise_all(list(~ paste(., collapse = ",")))
+
+  
+  reactome <- getBM(attributes=c('entrezgene_id','reactome'),
+                    values = tmp$entrezgene_id, filters = 'entrezgene_id', 
+                    mart = ensembl, verbose=T)  %>% group_by(entrezgene_id) %>% 
+    summarise_all(list(~ paste(., collapse = ",")))
+  
+  # get further SNP information from Biomart - you need to get this info from a different mart (ensembl variation)  
+  snp_info <- getBM(attributes=c('refsnp_id',  'validated', 'consequence_type_tv','sift_prediction', 
+                                 'ensembl_gene_name', 'ensembl_gene_stable_id',
+                                 'motif_name','motif_score_delta', 'reg_feature_stable_id', 'reg_consequence_types'),
+                    filters='snp_filter', values=vcf$Existing_variation, mart=m_ensembl, verbose=T) %>% group_by(refsnp_id) %>% 
+    summarise_all(list(~ paste(., collapse = ",")))
+  
+  # just renaming column for merging
+  colnames(snp_info)[colnames(snp_info) == "refsnp_id"] <- "Existing_variation"
+  
+  # combines everything into a single dataframe.
+  df_list <- list(vcf, phenos,GO,reactome, snp_info)
+  databases <- Reduce(function(x, y) merge(x, y, all=TRUE), df_list)
+                      
+  return(databases)
+   
+}
+
+```
+
+## Release 2021 from Mouse Genome Project - data predicted with EnsemblVEP 111
+
+
+```{r}
+
+load_data_REL_2021 <- function(vcf_file_path){
+  # just a single file that needs reading 
+  vcf <- readVcf(open(VcfFile(file =vcf_file_path,
+                                   index = paste0(vcf_file_path,".tbi", sep=""))))
+  
+  return(vcf)
+}
+
+SNP_data <- load_data_REL_2021("unique_pred.vcf.gz")
+
+Exon_SNPs <- SNP_filter(SNP_data, annos, AllVariants())
+
+BM_SNPs_v4 <- BM_annotate(Exon_SNPs)
+
+BM_SNPs_v4
+
+df <- as.data.frame(BM_SNPs_v4)
+
+# Write the data frame to a file
+fwrite(df, "REL2021-SNPs.tsv", sep = "\t")
+
+
+```
+
+## Release 1505 - data mapped from GRCm38 to GRCm39 and predicted with EnsemblVEP
+
+
+```{r}
+
+load_data <- function(control_vcf_file_path, test_vcf_file_path){
+  #' load test and control SNPs and remove like SNPs from the dataset
+  ctrl_vcf <- readVcf(open(VcfFile(file = control_vcf_file_path,
+                                   index = paste0(control_vcf_file_path,".tbi", sep=""))))
+  
+  test_vcf <- readVcf(open(VcfFile(file = test_vcf_file_path,
+                                   index = paste0(test_vcf_file_path,".tbi", sep=""))))
+  # Filter Control SNPs from the test SNP dataset
+  # This also removes duplicate SNPs
+  vcf <- test_vcf[!(rownames(info(test_vcf)) %in% rownames(info(ctrl_vcf)))]
+  return(vcf)
+}
+
+SNP_1505_data <- load_data("pred_sort_C57BL_6NJ.mgp.v5.snps.dbSNP142.GRCm39.vcf.gz",
+                           "pred_sort_C3H_HeH.mgp.v5.snps.dbSNP142.GRCm39.vcf.gz")
+
+C3H_data <- load_data_REL_2021("pred_C3H_HeH.mgp.v5.snps.dbSNP142.GRCm39.vcf.gz")
+
+B6_data <- load_data_REL_2021("pred_sort_C57BL_6NJ.mgp.v5.snps.dbSNP142.GRCm39.vcf.gz")
+
+
+#SNP_data <- load_data("results_C57Bl6_v7.vcf.gz","results_C3H_HeH_v6.vcf.gz")
+
+# cause I lift-overed it used mm39.fasta but it just needs to rename the genome
+genome(SNP_1505_data) <- "mm39"
+
+Funct_SNPs <- SNP_filter(SNP_1505_data, annos, AllVariants())
+
+BM_SNPs_v3 <- BM_annotate(Funct_SNPs)
+
+df <- as.data.frame(BM_SNPs_v3)
+
+# Write the data frame to a file
+fwrite(df, "REL1505-SNPs.tsv", sep = "\t")
+
+```
+
+
+
+```{r}
+
+f1 <- read.table(file = 'MGI_SNP_Query_20230119_071431.txt', sep = '\t', header = TRUE)
+f2 <- read.table(file = 'MGI_SNP_Query_20230119_071923.txt', sep = '\t', header = TRUE)
+f3 <- read.table(file = 'MGI_SNP_Query_20230119_071724.txt', sep = '\t', header = TRUE)
+
+
+#combine all the things
+file <- merge(f1, f2, by=intersect(names(f1), names(f2)), all=T)
+file <- merge(file, f3, by=intersect(names(file), names(f3)), all=T)
+rm(f1, f2, f3)
+
+# SNPs 
+# filtered to be like in C3H and 129 but unlike C57BL6
+file_1 <- file %>% dplyr::filter((C3H.HeJ != C57BL.6J & C3H.HeJ != "" & C57BL.6J != "" & X129S6.SvEvTac != C57BL.6J & X129S6.SvEvTac != "")) %>% 
+  filter(Gene.Symbol %in% names(annos))
+
+# filtered to be like in C3H and FVB but unlike C57BL6
+file_2 <- file %>% dplyr::filter((C3H.HeJ != C57BL.6J & C3H.HeJ != "" & C57BL.6J != "" & FVB.NJ != C57BL.6J & FVB.NJ != "")) %>% 
+  filter(Gene.Symbol %in% names(annos))
+
+# just unlike between C57Bl6/N and C3H/HeH
+
+file_3 <- file %>% dplyr::filter((C3H.HeJ != C57BL.6J & C3H.HeJ != "" & C57BL.6J != "")) %>%  filter(Gene.Symbol %in% names(annos))
+
+rm(file)
+
+fetch_SNPs_from_BM <- function(mgi_query_snps, annos){
+  
+  pathway_ensemblIDs <- mapIds(org.Mm.eg.db, names(annos),"ENSEMBL","SYMBOL")
+  
+  
+  functional_info_1 <- getBM(attributes=c('refsnp_id', 'sift_prediction', 'reg_consequence_types'),
+                           filters='snp_filter', values=unique(mgi_query_snps$SNP.ID..GRCm39.), mart=m_ensembl, verbose=T)
+  
+  functional_info_2 <- getBM(attributes=c('refsnp_id', 'motif_consequence_types','ensembl_transcript_stable_id','ensembl_gene_name'),
+                             filters='snp_filter', values=unique(mgi_query_snps$SNP.ID..GRCm39.), mart=m_ensembl, verbose=T)
+  
+  functional_info <- merge(functional_info_1, functional_info_2)
+  
+  trans_stab_info <- getBM(attributes=c('ensembl_transcript_id','transcript_tsl','transcript_is_canonical','transcript_appris'),
+                           filters='ensembl_transcript_id', values=unique(functional_info$ensembl_transcript_stable_id), mart=ensembl, verbose=T)
+  
+  functional_info <- merge(functional_info, trans_stab_info, by.x='ensembl_transcript_stable_id', by.y = 'ensembl_transcript_id', all.x = T)
+  
+  filtered_functional_info <- functional_info %>% 
+    filter(ensembl_gene_name %in% pathway_ensemblIDs) %>%
+    filter((str_detect(sift_prediction, 'deleterious') | (reg_consequence_types != "" | motif_consequence_types!= "")) & (str_detect(transcript_tsl, 'tsl1')| transcript_is_canonical == 1)) 
+  
+  
+  genome_pos <- getBM(attributes=c('refsnp_id', 'chr_name', 'chrom_start', 'chrom_end', 'ensembl_transcript_chrom_strand','ensembl_gene_name'),
+                             filters='snp_filter', values=unique(filtered_functional_info$refsnp_id), mart=m_ensembl, verbose=T)
+
+  
+  snp_information <- getBM(attributes=c('refsnp_id','title','ensembl_peptide_allele', 'motif_name','reg_feature_stable_id', 'ensembl_gene_name', 'sift_score','consequence_type_tv'),
+                           filters='snp_filter', values=unique(filtered_functional_info$refsnp_id), mart=m_ensembl, verbose=T)
+  
+  
+  phenos <- getBM(attributes=c('external_gene_name','phenotype_description', 'ensembl_gene_id'), values = unique(snp_information$ensembl_gene_name), 
+                  filters = 'ensembl_gene_id', mart = ensembl, verbose=T)
+  
+  GO <- getBM(attributes=c('external_gene_name','name_1006', 'goslim_goa_description','ensembl_gene_id'), values = unique(snp_information$ensembl_gene_name),
+              filters = 'ensembl_gene_id', mart = ensembl, verbose=T)
+  
+  reactome <- getBM(attributes=c('external_gene_name','reactome','biogrid','ensembl_gene_id'), values = unique(snp_information$ensembl_gene_name), 
+                    filters = 'ensembl_gene_id', mart = ensembl, verbose=T)
+  
+  ensembl_list <- lapply(list(phenos,GO,reactome), as.data.table)
+  
+  
+  
+  ens_databases <- rbindlist(ensembl_list, use.names = TRUE, fill = TRUE) %>% group_by(ensembl_gene_id) %>% summarise_all(function(x) paste(unique(na.omit(x)), collapse = "|"))
+  
+  
+  m_ensembl_list <- lapply(list(filtered_functional_info, genome_pos, snp_information), as.data.table)
+  
+  m_ens_databases <- rbindlist(m_ensembl_list, use.names = TRUE, fill = TRUE) %>% group_by(refsnp_id, ensembl_gene_name) %>%
+    filter(!is.na(ensembl_gene_name)) %>% summarise_all(function(x) paste(unique(na.omit(x)), collapse = "|"))
+  
+  annoed_SNPs <- merge(ens_databases, m_ens_databases, by.x='ensembl_gene_id', by.y = 'ensembl_gene_name', all.y=T)
+   
+  grouped_SNPs <- annoed_SNPs %>% group_by(refsnp_id)
+  
+  annoed_SNPs <- grouped_SNPs %>% summarise_all(function(x) list(unique(x)))
+  
+  annoed_SNPs <- merge(annoed_SNPs, as.data.table(mgi_query_snps), by.x = 'refsnp_id', by.y='SNP.ID..GRCm39.', all.x=T)
+  
+  return(annoed_SNPs)
+}
+
+#'goslim_goa_description', 'reactome'
+
+
+
+
+snps_filtered_from_just_C3H_HEH <- fetch_SNPs_from_BM(file_3, annos)
+
+
+
+
+
+#MGI_Results <- unnest(snps_filtered_from_just_C3H_HEH)
+
+
+#fwrite(MGI_Results, "MGI_query_results_GRCm39.csv")
+
+
+consequences_of_int <- c("NMD_transcript_variant", "3_prime_UTR_variant","non_coding_transcript_exon_variant", "5_prime_UTR_variant", "splice_region_variant")
+
+consequences_from_C3H <- snps_filtered_from_just_C3H_HEH %>% filter(str_detect(consequence_type_tv,
+                                                                               paste(consequences_of_int, collapse = "|")))
+
+sifted_just_C3H_HEH <- snps_filtered_from_just_C3H_HEH %>% filter(str_detect(sift_prediction, 'deleterious'))
+
+fwrite(sifted_just_C3H_HEH, "MGI_query_grcm39_results_sifted.csv")
+
+
+UTR_variants_from_C3H <- snps_filtered_from_just_C3H_HEH %>% filter(str_detect(consequence_type_tv,"3_prime_UTR_variant|5_prime_UTR_variant"))
+
+splicing_variants_from_C3H <- snps_filtered_from_just_C3H_HEH %>% filter(str_detect(consequence_type_tv,"donor|acceptor"))
+
+
+
+fwrite(splicing_variants_from_C3H, "GRCm39_splice_variants.csv")
+
+sifted_just_C3H_HEH
+
+```
+
+
+```{r}
+
+common_variants <- intersect(BM_SNPs_v4$Existing_variation, BM_SNPs_v3$Existing_variation)
+
+common_variants <- intersect(common_variants, sifted_just_C3H_HEH$refsnp_id)
+cons_in_MGP <- BM_SNPs_v4[BM_SNPs_v4$Existing_variation %in% common_variants, ]
+
+cons_in_MGP
+```
