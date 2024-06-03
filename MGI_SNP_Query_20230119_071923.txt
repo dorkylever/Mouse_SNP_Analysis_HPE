@@ -1,0 +1,451 @@
+SNP ID (GRCm39)	Chromosome	Coordinate (GRCm39)	MGI Gene ID	Gene Symbol	Category	Variation Type	Allele Summary (all strains)	C3H/HeJ	FVB/NJ	C57BL/6J	
+rs6389350	2	94131412	MGI:1921819	Ttc17	within coordinates of	SNP	A/G		A	A	
+rs27365050	2	94132243	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T	C	C	
+rs27365041	2	94135989	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T	T	T	
+rs27365033	2	94140320	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	T	T	
+rs27365028	2	94144788	MGI:1921819	Ttc17	within coordinates of	SNP	G/T	T	T	G	
+rs27365016	2	94151160	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	A	A	G	
+rs27365002	2	94152648	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	G	
+rs27364999	2	94152756	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T	T	C	
+rs27417239	2	94157211	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	A	A	G	
+rs27417238	2	94157299	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T	T	C	
+rs27417231	2	94158223	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	C	
+rs27417230	2	94159386	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	A	A	G	
+rs27417223	2	94159878	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T	T	C	
+rs27417221	2	94159910	MGI:1921819	Ttc17	within coordinates of	SNP	C/G	C	C	C	
+rs27417219	2	94160019	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	C	
+rs3708059	2	94163467	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T	T	T	
+rs27417209	2	94163718	MGI:1921819	Ttc17	within coordinates of	SNP	G/T	G	G	G	
+rs6302112	2	94165525	MGI:1921819	Ttc17	within coordinates of	SNP	A/C	A	A	A	
+rs6302112	2	94165525	MGI:6951413	Rr63191	within coordinates of	SNP	A/C	A	A	A	
+rs27417196	2	94166337	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	C	
+rs6336584	2	94167318	MGI:1921819	Ttc17	within coordinates of	SNP	A/T	T	T	T	
+rs6337120	2	94167401	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	A	A	A	
+rs6338868	2	94167711	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	A	A	A	
+rs6351853	2	94167822	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	C	
+rs27417183	2	94168346	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T	T	T	
+rs27417169	2	94170106	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	A	A	G	
+rs6165096	2	94172425	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	A	A	A	
+rs6165570	2	94172497	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T	T	T	
+rs6166068	2	94172564	MGI:1921819	Ttc17	within coordinates of	SNP	A/C	A	A	A	
+rs27397337	2	94177561	MGI:1921819	Ttc17	within coordinates of	SNP	A/T	T	T	A	
+rs27397337	2	94177561	MGI:6951415	Rr63193	within coordinates of	SNP	A/T	T	T	A	
+rs27397335	2	94177849	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	C	
+rs27397335	2	94177849	MGI:6951415	Rr63193	within coordinates of	SNP	C/T	C	C	C	
+rs27397325	2	94180995	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	G	
+rs27397306	2	94183323	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	C	
+rs27397301	2	94185005	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	G	
+rs27397299	2	94185440	MGI:1921819	Ttc17	within coordinates of	SNP	A/C	C	C	C	
+rs13459164	2	94189178	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	A	
+rs27397251	2	94193624	MGI:1921819	Ttc17	within coordinates of	SNP	A/T	T	T	T	
+rs27397245	2	94196673	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	G	
+rs27397243	2	94197048	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	A	
+rs27397239	2	94198179	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	A	A	G	
+rs27397236	2	94199062	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	G	
+rs27397204	2	94209594	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	A	
+rs27397194	2	94212621	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T		C	
+rs27397188	2	94213035	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	G	
+rs27397183	2	94214091	MGI:1921819	Ttc17	within coordinates of	SNP	A/C	C	C	A	
+rs27397178	2	94214846	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	A	A	G	
+rs27397175	2	94215459	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	C	
+rs27397170	2	94215737	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C		T	
+rs27397169	2	94215869	MGI:1921819	Ttc17	within coordinates of	SNP	C/G	C	C	G	
+rs27397168	2	94216339	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	C	
+rs27397167	2	94216665	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	G	
+rs27397165	2	94216770	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	C	
+rs27397161	2	94217461	MGI:1921819	Ttc17	within coordinates of	SNP	C/G	G	G	G	
+rs27397159	2	94217694	MGI:1921819	Ttc17	within coordinates of	SNP	C/G	G	G	G	
+rs27397154	2	94218351	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	G	G	G	
+rs27397145	2	94219074	MGI:1921819	Ttc17	within coordinates of	SNP	A/T	A	A	T	
+rs27397145	2	94219074	MGI:6939107	Rr50885	within coordinates of	SNP	A/T	A	A	T	
+rs27397130	2	94221063	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	T	
+rs27397122	2	94224242	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T	T	T	
+rs3692110	2	94224777	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	T	T	C	
+rs27397117	2	94225643	MGI:1921819	Ttc17	within coordinates of	SNP	C/T	C	C	T	
+rs4139404	2	94235979	MGI:1921819	Ttc17	within coordinates of	SNP	A/G	A		G	
+rs4139404	2	94235979	MGI:6945453	Rr57231	within coordinates of	SNP	A/G	A		G	
+rs4226204	6	113601299	MGI:103223	Vhl	within coordinates of	SNP	A/G	G		G	
+rs4226204	6	113601299	MGI:5682926	Cpgi17851	within coordinates of	SNP	A/G	G		G	
+rs4226204	6	113601299	MGI:7033777	Rr145555	within coordinates of	SNP	A/G	G		G	
+rs30900031	6	119903800	MGI:2442092	Wnk1	within coordinates of	SNP	A/C	A	A	A	
+rs30372589	6	119908275	MGI:2442092	Wnk1	within coordinates of	SNP	G/T	T	T	T	
+rs30253580	6	119910088	MGI:2442092	Wnk1	within coordinates of	SNP	C/T		C	C	
+rs30307337	6	119911979	MGI:2442092	Wnk1	within coordinates of	SNP	G/T	T	T	T	
+rs6329986	6	119912626	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	G	G	G	
+rs3724230	6	119913202	MGI:2442092	Wnk1	within coordinates of	SNP	C/T	T	C	C	
+rs30509043	6	119913672	MGI:2442092	Wnk1	within coordinates of	SNP	A/C	C	C	C	
+rs30167526	6	119918118	MGI:2442092	Wnk1	within coordinates of	SNP	A/T	A	T	T	
+rs30756316	6	119920781	MGI:2442092	Wnk1	within coordinates of	SNP	C/T	C	C	C	
+rs30946172	6	119921592	MGI:2442092	Wnk1	within coordinates of	SNP	C/T	T	T	T	
+rs30887833	6	119922144	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	G	G	G	
+rs30415450	6	119923481	MGI:2442092	Wnk1	within coordinates of	SNP	C/T		T	T	
+rs30746603	6	119926100	MGI:2442092	Wnk1	within coordinates of	SNP	A/C	A	A	A	
+rs30074260	6	119929969	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	A	A	A	
+rs29873087	6	119930094	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	A	A	A	
+rs30169403	6	119931721	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	A	A	A	
+rs30903151	6	119933716	MGI:2442092	Wnk1	within coordinates of	SNP	C/T		C	C	
+rs30805958	6	119935193	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	G	G	G	
+rs30424862	6	119935330	MGI:2442092	Wnk1	within coordinates of	SNP	C/T	C	C	C	
+rs30999544	6	119935430	MGI:2442092	Wnk1	within coordinates of	SNP	C/G	G	G	G	
+rs6257334	6	119939864	MGI:2442092	Wnk1	within coordinates of	SNP	G/T	T	T	T	
+rs30798703	6	119941989	MGI:2442092	Wnk1	within coordinates of	SNP	C/T	T	T	T	
+rs30558178	6	119942545	MGI:2442092	Wnk1	within coordinates of	SNP	C/T	C	C	C	
+rs30614494	6	119945991	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	G	G	G	
+rs30991944	6	119946163	MGI:2442092	Wnk1	within coordinates of	SNP	A/T	T	T	T	
+rs30760565	6	119947711	MGI:2442092	Wnk1	within coordinates of	SNP	A/T	A	A	A	
+rs30070451	6	119948564	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	G	G	G	
+rs30169432	6	119952758	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	A	A	A	
+rs30365645	6	119956859	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	A	A	A	
+rs30363970	6	119963134	MGI:2442092	Wnk1	within coordinates of	SNP	A/G		A	A	
+rs30747728	6	119963653	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	G	G	G	
+rs30852477	6	119972554	MGI:2442092	Wnk1	within coordinates of	SNP	A/G	A	A	A	
+rs30867846	6	119978957	MGI:2442092	Wnk1	within coordinates of	SNP	C/T	T	T	T	
+rs30867846	6	119978957	MGI:7020882	Rr132660	within coordinates of	SNP	C/T	T	T	T	
+rs30409145	6	119990550	MGI:2442092	Wnk1	within coordinates of	SNP	C/G	C	C	C	
+rs30409145	6	119990550	MGI:7035552	Rr147330	within coordinates of	SNP	C/G	C	C	C	
+rs30657032	6	119993554	MGI:2442092	Wnk1	within coordinates of	SNP	C/T		C	C	
+rs30657032	6	119993554	MGI:7035552	Rr147330	within coordinates of	SNP	C/T		C	C	
+rs30015426	6	119993620	MGI:2442092	Wnk1	within coordinates of	SNP	A/T		T	T	
+rs30015426	6	119993620	MGI:7035552	Rr147330	within coordinates of	SNP	A/T		T	T	
+rs30751448	6	119995254	MGI:2442092	Wnk1	within coordinates of	SNP	C/T		C	C	
+rs30751448	6	119995254	MGI:7035552	Rr147330	within coordinates of	SNP	C/T		C	C	
+rs30766695	6	119998604	MGI:2442092	Wnk1	within coordinates of	SNP	C/T		C	C	
+rs30766695	6	119998604	MGI:7035552	Rr147330	within coordinates of	SNP	C/T		C	C	
+rs30057771	6	120001448	MGI:2442092	Wnk1	within coordinates of	SNP	C/T		C	C	
+rs30057771	6	120001448	MGI:7035552	Rr147330	within coordinates of	SNP	C/T		C	C	
+rs32308436	7	29939996	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	G	G	G	
+rs32308436	7	29939996	MGI:7058635	Rr170413	within coordinates of	SNP	A/G	G	G	G	
+rs31618018	7	29940115	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	C	C	C	
+rs31618018	7	29940115	MGI:7058635	Rr170413	within coordinates of	SNP	C/T	C	C	C	
+rs31574975	7	29940201	MGI:1923696	Wdr62	within coordinates of	SNP	A/C	A	A	A	
+rs31574975	7	29940201	MGI:7058635	Rr170413	within coordinates of	SNP	A/C	A	A	A	
+rs31484829	7	29941084	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	T	T	T	
+rs31543452	7	29941164	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	G	G	G	
+rs31211709	7	29943133	MGI:1923696	Wdr62	within coordinates of	SNP	C/T		C	C	
+rs31803529	7	29943424	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	T	T	T	
+rs32506862	7	29947449	MGI:1923696	Wdr62	within coordinates of	SNP	G/T	G	G	G	
+rs32162605	7	29947698	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	T	T	T	
+rs31548050	7	29948218	MGI:1923696	Wdr62	within coordinates of	SNP	C/G	G	G	G	
+rs31555768	7	29948282	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	T	T	T	
+rs31600445	7	29948421	MGI:1923696	Wdr62	within coordinates of	SNP	G/T	G	G	G	
+rs31032327	7	29948443	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	A	A	A	
+rs32431797	7	29949477	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	G	G	G	
+rs32396929	7	29949630	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	T	T	T	
+rs31287628	7	29949799	MGI:1923696	Wdr62	within coordinates of	SNP	A/C	C	C	C	
+rs32480032	7	29949855	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	A	A	A	
+rs31479744	7	29949942	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	A	A	A	
+rs3148714	7	29950184	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	G	G	G	
+rs32123456	7	29950251	MGI:1923696	Wdr62	within coordinates of	SNP	A/C	C	C	C	
+rs31204346	7	29952079	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	C	C	C	
+rs31204346	7	29952079	MGI:7049212	Rr160990	within coordinates of	SNP	C/T	C	C	C	
+rs31639978	7	29952171	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	C	C	C	
+rs31639978	7	29952171	MGI:7049212	Rr160990	within coordinates of	SNP	C/T	C	C	C	
+rs32152378	7	29952296	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	G	G	G	
+rs32152378	7	29952296	MGI:7049212	Rr160990	within coordinates of	SNP	A/G	G	G	G	
+rs32246747	7	29952787	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	T	T	T	
+rs31415609	7	29952845	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	T	T	T	
+rs31415609	7	29952845	MGI:7049213	Rr160991	within coordinates of	SNP	C/T	T	T	T	
+rs31660864	7	29958678	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	T	T	T	
+rs32155524	7	29958728	MGI:1923696	Wdr62	within coordinates of	SNP	G/T	G	G	G	
+rs31430583	7	29962040	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	G	G	G	
+rs32167643	7	29962225	MGI:1923696	Wdr62	within coordinates of	SNP	G/T	G	G	G	
+rs32526372	7	29964101	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	C	C	C	
+rs31762151	7	29964151	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	C	C	C	
+rs31431646	7	29964190	MGI:1923696	Wdr62	within coordinates of	SNP	C/G	C	C	C	
+rs31278321	7	29967071	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	C	C	C	
+rs31148491	7	29967417	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	G	G	G	
+rs31162015	7	29971657	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	A	A	A	
+rs32379287	7	29971849	MGI:1923696	Wdr62	within coordinates of	SNP	A/C	A	A	A	
+rs31905260	7	29972106	MGI:1923696	Wdr62	within coordinates of	SNP	A/G	A	A	A	
+rs31305954	7	29973559	MGI:1923696	Wdr62	within coordinates of	SNP	C/T	T	T	T	
+rs29694847	9	120826445	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29694847	9	120826445	MGI:5594104	Gm34945	within coordinates of	SNP	A/G	A	A	G	
+rs29694847	9	120826445	MGI:7091188	Rr202966	within coordinates of	SNP	A/G	A	A	G	
+rs33494539	9	120827011	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	C	C	G	
+rs33494539	9	120827011	MGI:5594104	Gm34945	within coordinates of	SNP	C/G	C	C	G	
+rs33496087	9	120827944	MGI:1921622	Ulk4	within coordinates of	SNP	A/C		A	C	
+rs33496087	9	120827944	MGI:5594104	Gm34945	within coordinates of	SNP	A/C		A	C	
+rs33496087	9	120827944	MGI:7096159	Rr207937	within coordinates of	SNP	A/C		A	C	
+rs33496089	9	120828019	MGI:1921622	Ulk4	within coordinates of	SNP	A/C		C	A	
+rs33496089	9	120828019	MGI:5594104	Gm34945	within coordinates of	SNP	A/C		C	A	
+rs33496089	9	120828019	MGI:7096159	Rr207937	within coordinates of	SNP	A/C		C	A	
+rs33496093	9	120828653	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	T	
+rs33496093	9	120828653	MGI:5594104	Gm34945	within coordinates of	SNP	G/T	G	G	T	
+rs33496093	9	120828653	MGI:7096159	Rr207937	within coordinates of	SNP	G/T	G	G	T	
+rs33496969	9	120829337	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs33491516	9	120833212	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs33492791	9	120837555	MGI:1921622	Ulk4	within coordinates of	SNP	C/T		T	T	
+rs13480455	9	120847308	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	T	
+rs33493740	9	120847571	MGI:1921622	Ulk4	within coordinates of	SNP	A/T	T		A	
+rs29785508	9	120847606	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G		A	
+rs33495647	9	120848633	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs33495647	9	120848633	MGI:7096161	Rr207939	within coordinates of	SNP	C/T	T	T	C	
+rs29593176	9	120860052	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29593176	9	120860052	MGI:7087435	Rr199213	within coordinates of	SNP	C/T	C	C	T	
+rs30285640	9	120860071	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs30285640	9	120860071	MGI:7087435	Rr199213	within coordinates of	SNP	A/G	A	A	G	
+rs30499129	9	120860160	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs30499129	9	120860160	MGI:7087435	Rr199213	within coordinates of	SNP	C/T	C	C	T	
+rs30471353	9	120863060	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29732795	9	120863151	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	G	G	C	
+rs30333930	9	120863185	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29736945	9	120864910	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30047515	9	120865004	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29738377	9	120865107	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29594016	9	120865956	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29594016	9	120865956	MGI:7096163	Rr207941	within coordinates of	SNP	C/T	C	C	T	
+rs29591261	9	120866289	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs29591261	9	120866289	MGI:7096163	Rr207941	within coordinates of	SNP	C/T	T	T	C	
+rs29601113	9	120866753	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs29601113	9	120866753	MGI:7096163	Rr207941	within coordinates of	SNP	A/G	G	G	A	
+rs33720127	9	120866825	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs33720127	9	120866825	MGI:7096163	Rr207941	within coordinates of	SNP	C/T	T	T	C	
+rs30087708	9	120866893	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30087708	9	120866893	MGI:7096163	Rr207941	within coordinates of	SNP	A/G	G	G	A	
+rs29890619	9	120866941	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs29890619	9	120866941	MGI:7096163	Rr207941	within coordinates of	SNP	A/G	G	G	A	
+rs29689811	9	120867523	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs29689811	9	120867523	MGI:7096163	Rr207941	within coordinates of	SNP	A/G	G	G	A	
+rs6357886	9	120868329	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs6357886	9	120868329	MGI:7096163	Rr207941	within coordinates of	SNP	A/G	A	A	G	
+rs6357917	9	120868349	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	G	G	C	
+rs6357917	9	120868349	MGI:7096163	Rr207941	within coordinates of	SNP	C/G	G	G	C	
+rs30127563	9	120873345	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29941423	9	120873381	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs3690036	9	120882262	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C		T	
+rs3690563	9	120882315	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T		C	
+rs29596878	9	120886059	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29596878	9	120886059	MGI:7096165	Rr207943	within coordinates of	SNP	A/G	A	A	G	
+rs29838570	9	120886198	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	C	C	G	
+rs29838570	9	120886198	MGI:7096165	Rr207943	within coordinates of	SNP	C/G	C	C	G	
+rs33692696	9	120886271	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs33692696	9	120886271	MGI:7096165	Rr207943	within coordinates of	SNP	A/G	A	A	G	
+rs30128447	9	120886953	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs30128447	9	120886953	MGI:7096165	Rr207943	within coordinates of	SNP	C/T	T	T	C	
+rs33745165	9	120887010	MGI:1921622	Ulk4	within coordinates of	SNP	C/T		T	C	
+rs33745165	9	120887010	MGI:7096165	Rr207943	within coordinates of	SNP	C/T		T	C	
+rs29782724	9	120887930	MGI:1921622	Ulk4	within coordinates of	SNP	A/C	A	A	C	
+rs29782724	9	120887930	MGI:7081712	Rr193490	within coordinates of	SNP	A/C	A	A	C	
+rs29782724	9	120887930	MGI:7096165	Rr207943	within coordinates of	SNP	A/C	A	A	C	
+rs30337892	9	120891522	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	A	
+rs30337892	9	120891522	MGI:7096166	Rr207944	within coordinates of	SNP	A/G	A	A	A	
+rs30381025	9	120892136	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	A	
+rs30381025	9	120892136	MGI:7096166	Rr207944	within coordinates of	SNP	A/G	A	A	A	
+rs33757024	9	120892813	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	C	
+rs6159614	9	120893122	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	T	
+rs6160171	9	120893228	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	G	
+rs6160214	9	120893257	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	G	
+rs33718191	9	120893817	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	G	
+rs30132971	9	120895837	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30132971	9	120895837	MGI:7087437	Rr199215	within coordinates of	SNP	A/G	G	G	A	
+rs30336966	9	120895873	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30336966	9	120895873	MGI:7087437	Rr199215	within coordinates of	SNP	A/G	G	G	A	
+rs29593785	9	120895906	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	T	
+rs29593785	9	120895906	MGI:7087437	Rr199215	within coordinates of	SNP	C/T	T	T	T	
+rs30420601	9	120896247	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	A	
+rs30420601	9	120896247	MGI:7087437	Rr199215	within coordinates of	SNP	A/G	A	A	A	
+rs29732355	9	120896259	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	A	
+rs29732355	9	120896259	MGI:7087437	Rr199215	within coordinates of	SNP	A/G	A	A	A	
+rs29638701	9	120896393	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	G	
+rs29638701	9	120896393	MGI:7087437	Rr199215	within coordinates of	SNP	A/G	G	G	G	
+rs29694373	9	120896412	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29694373	9	120896412	MGI:7087437	Rr199215	within coordinates of	SNP	A/G	A	A	G	
+rs30070655	9	120896463	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	A	
+rs30070655	9	120896463	MGI:7087437	Rr199215	within coordinates of	SNP	A/G	A	A	A	
+rs30083893	9	120896517	MGI:1921622	Ulk4	within coordinates of	SNP	A/C	A	A	C	
+rs30083893	9	120896517	MGI:7087437	Rr199215	within coordinates of	SNP	A/C	A	A	C	
+rs29790730	9	120896646	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	C	
+rs30378516	9	120897770	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29643434	9	120898356	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	G	
+rs30191737	9	120898778	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30513614	9	120898836	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs30288946	9	120899097	MGI:1921622	Ulk4	within coordinates of	SNP	A/C	C	C	A	
+rs30511953	9	120899595	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	G	G	C	
+rs29644461	9	120899940	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	C	
+rs29640800	9	120899962	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29644998	9	120900862	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	G	
+rs29644998	9	120900862	MGI:7087438	Rr199216	within coordinates of	SNP	A/G	G	G	G	
+rs30486273	9	120900891	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs30486273	9	120900891	MGI:7087438	Rr199216	within coordinates of	SNP	C/T	T	T	C	
+rs6323239	9	120902676	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C		T	
+rs30282342	9	120902990	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	G	
+rs6227429	9	120902993	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs6228006	9	120903135	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	T	T	T	
+rs29886691	9	120911584	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	C	C	C	
+rs30086016	9	120912830	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs30086016	9	120912830	MGI:7087439	Rr199217	within coordinates of	SNP	C/T	T	T	C	
+rs29731700	9	120912898	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	C	
+rs29731700	9	120912898	MGI:7087439	Rr199217	within coordinates of	SNP	C/T	C	C	C	
+rs33630526	9	120912987	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs33630526	9	120912987	MGI:7087439	Rr199217	within coordinates of	SNP	A/G	A	A	G	
+rs3694788	9	120914111	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs30329402	9	120915535	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs29643852	9	120915679	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29995184	9	120915713	MGI:1921622	Ulk4	within coordinates of	SNP	A/C	A	A	C	
+rs29790623	9	120915858	MGI:1921622	Ulk4	within coordinates of	SNP	G/T		G	T	
+rs3666333	9	120916471	MGI:1921622	Ulk4	within coordinates of	SNP	A/C	C	C	A	
+rs3681029	9	120916548	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	T	
+rs3682188	9	120916689	MGI:1921622	Ulk4	within coordinates of	SNP	A/T	T	T	A	
+rs3682918	9	120916832	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs4137919	9	120916891	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs30136667	9	120919007	MGI:1921622	Ulk4	within coordinates of	SNP	A/C		C	A	
+rs33677072	9	120919066	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs29740255	9	120921545	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	C	C	G	
+rs33618283	9	120923192	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29987040	9	120925835	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs30028343	9	120925926	MGI:1921622	Ulk4	within coordinates of	SNP	A/C	C	C	A	
+rs29686422	9	120925957	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29938198	9	120926453	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs30244749	9	120927424	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30244749	9	120927424	MGI:7087440	Rr199218	within coordinates of	SNP	A/G	G	G	A	
+rs33703936	9	120927730	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs33703936	9	120927730	MGI:7087440	Rr199218	within coordinates of	SNP	C/T	T	T	C	
+rs29729245	9	120928577	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs29729245	9	120928577	MGI:7087440	Rr199218	within coordinates of	SNP	C/T	T	T	C	
+rs30075680	9	120928713	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	T	
+rs30075680	9	120928713	MGI:7087440	Rr199218	within coordinates of	SNP	G/T	G	G	T	
+rs29934050	9	120929191	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29741653	9	120929508	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	T	
+rs30358813	9	120929794	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G		A	
+rs29739821	9	120932458	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs29637764	9	120932567	MGI:1921622	Ulk4	within coordinates of	SNP	A/G		G	A	
+rs30488436	9	120936112	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs30488436	9	120936112	MGI:7096170	Rr207948	within coordinates of	SNP	C/T	C	C	T	
+rs29988758	9	120936134	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs29988758	9	120936134	MGI:7096170	Rr207948	within coordinates of	SNP	A/G	G	G	A	
+rs30170400	9	120936407	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	T	
+rs30170400	9	120936407	MGI:7096170	Rr207948	within coordinates of	SNP	G/T	G	G	T	
+rs30385038	9	120938755	MGI:1921622	Ulk4	within coordinates of	SNP	C/T		C	T	
+rs30385038	9	120938755	MGI:7096170	Rr207948	within coordinates of	SNP	C/T		C	T	
+rs29744098	9	120939247	MGI:1921622	Ulk4	within coordinates of	SNP	C/T		T	C	
+rs29744098	9	120939247	MGI:7096170	Rr207948	within coordinates of	SNP	C/T		T	C	
+rs6317265	9	120952799	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	C	
+rs6331139	9	120952991	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	T	
+rs33699373	9	120956422	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs33699373	9	120956422	MGI:7087444	Rr199222	within coordinates of	SNP	A/G	A	A	G	
+rs33739075	9	120961672	MGI:1921622	Ulk4	within coordinates of	SNP	A/T	A	A	T	
+rs30213114	9	120966998	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs3709082	9	120970526	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs4136213	9	120970572	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29931836	9	120975242	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs6351659	9	120981228	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	A	
+rs30521176	9	120985998	MGI:1921622	Ulk4	within coordinates of	SNP	A/C	A	A	C	
+rs30521176	9	120985998	MGI:7087446	Rr199224	within coordinates of	SNP	A/C	A	A	C	
+rs29587211	9	120986165	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29587211	9	120986165	MGI:7087446	Rr199224	within coordinates of	SNP	C/T	C	C	T	
+rs29787979	9	120986180	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	T	
+rs29787979	9	120986180	MGI:7087446	Rr199224	within coordinates of	SNP	G/T	G	G	T	
+rs30432500	9	120986235	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs30432500	9	120986235	MGI:7087446	Rr199224	within coordinates of	SNP	C/T	C	C	T	
+rs29689473	9	120986247	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29689473	9	120986247	MGI:7087446	Rr199224	within coordinates of	SNP	A/G	A	A	G	
+rs33680110	9	120986865	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs33651329	9	120987366	MGI:1921622	Ulk4	within coordinates of	SNP	A/C	A	A	A	
+rs30477522	9	120988098	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29589533	9	120989607	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	T	T	G	
+rs30133846	9	120989804	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs30333678	9	120990300	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	G	
+rs29688959	9	120991086	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	G	
+rs29688959	9	120991086	MGI:7091193	Rr202971	within coordinates of	SNP	A/G	G	G	G	
+rs29694077	9	120991229	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29694077	9	120991229	MGI:7091193	Rr202971	within coordinates of	SNP	C/T	C	C	T	
+rs29632700	9	120991265	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29632700	9	120991265	MGI:7091193	Rr202971	within coordinates of	SNP	C/T	C	C	T	
+rs33725108	9	120991460	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	G	
+rs33725108	9	120991460	MGI:7091193	Rr202971	within coordinates of	SNP	A/G	G	G	G	
+rs29895831	9	120992472	MGI:1921622	Ulk4	within coordinates of	SNP	A/G		A	A	
+rs30119819	9	120992922	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs30377354	9	120993576	MGI:1921622	Ulk4	within coordinates of	SNP	A/G		G	A	
+rs30377354	9	120993576	MGI:7087447	Rr199225	within coordinates of	SNP	A/G		G	A	
+rs30083076	9	120995309	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	G	G	C	
+rs30082026	9	121002004	MGI:1921622	Ulk4	within coordinates of	SNP	A/C	C	C	A	
+rs30182159	9	121002471	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30279427	9	121002599	MGI:1921622	Ulk4	within coordinates of	SNP	A/T	A	A	T	
+rs33620882	9	121003125	MGI:1921622	Ulk4	within coordinates of	SNP	A/T	T	T	A	
+rs30423178	9	121004096	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	T	
+rs33768952	9	121004148	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30463908	9	121004238	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A		G	
+rs30463908	9	121004238	MGI:7087448	Rr199226	within coordinates of	SNP	A/G	A		G	
+rs33700922	9	121004515	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs33700922	9	121004515	MGI:7087448	Rr199226	within coordinates of	SNP	A/G	A	A	G	
+rs33767059	9	121004541	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	G	G	T	
+rs33767059	9	121004541	MGI:7087448	Rr199226	within coordinates of	SNP	G/T	G	G	T	
+rs30374532	9	121004732	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs30374532	9	121004732	MGI:7087448	Rr199226	within coordinates of	SNP	C/T	C	C	T	
+rs29887007	9	121004754	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29887007	9	121004754	MGI:7087448	Rr199226	within coordinates of	SNP	C/T	C	C	T	
+rs33774868	9	121004771	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs33774868	9	121004771	MGI:7087448	Rr199226	within coordinates of	SNP	A/G	G	G	A	
+rs30426587	9	121004837	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30426587	9	121004837	MGI:7087448	Rr199226	within coordinates of	SNP	A/G	G	G	A	
+rs29939790	9	121004955	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs29939790	9	121004955	MGI:7087448	Rr199226	within coordinates of	SNP	A/G	G	G	A	
+rs30214144	9	121005230	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	C	C	G	
+rs30035282	9	121005532	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs33774185	9	121005626	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs29733363	9	121005762	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs29988347	9	121005776	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs33717431	9	121016458	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs13480456	9	121016756	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30407395	9	121032851	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs30130058	9	121033309	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	G	G	C	
+rs30130058	9	121033309	MGI:7087449	Rr199227	within coordinates of	SNP	C/G	G	G	C	
+rs33721982	9	121033665	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	C	C	G	
+rs33721982	9	121033665	MGI:7087449	Rr199227	within coordinates of	SNP	C/G	C	C	G	
+rs29694768	9	121033921	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	A	
+rs29694768	9	121033921	MGI:7087449	Rr199227	within coordinates of	SNP	A/G	A	A	A	
+rs30124755	9	121033997	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	T	T	G	
+rs30124755	9	121033997	MGI:7087449	Rr199227	within coordinates of	SNP	G/T	T	T	G	
+rs30161955	9	121034024	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	C	C	G	
+rs30161955	9	121034024	MGI:7087449	Rr199227	within coordinates of	SNP	C/G	C	C	G	
+rs29888274	9	121034722	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs30374080	9	121037114	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	C	
+rs29837379	9	121037220	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs29838915	9	121071331	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs33646568	9	121077669	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G		A	
+rs30084319	9	121077833	MGI:1921622	Ulk4	within coordinates of	SNP	G/T	T	T	G	
+rs30427992	9	121077889	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29974478	9	121077922	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	C	C	T	
+rs33732866	9	121077933	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs30466330	9	121079805	MGI:1921622	Ulk4	within coordinates of	SNP	C/G	G	G	C	
+rs29930759	9	121080060	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs33896664	9	121096345	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs30521430	9	121100296	MGI:1921622	Ulk4	within coordinates of	SNP	A/T	T	T	A	
+rs33742501	9	121105468	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	G	G	A	
+rs29843779	9	121106905	MGI:1921622	Ulk4	within coordinates of	SNP	A/G	A	A	G	
+rs29843779	9	121106905	MGI:5593814	Gm34655	within coordinates of	SNP	A/G	A	A	G	
+rs29843779	9	121106905	MGI:5687583	Cpgi22511	within coordinates of	SNP	A/G	A	A	G	
+rs29843779	9	121106905	MGI:7094129	Rr205907	within coordinates of	SNP	A/G	A	A	G	
+rs29603731	9	121109775	MGI:1921622	Ulk4	within coordinates of	SNP	C/T		C	T	
+rs29603731	9	121109775	MGI:5593814	Gm34655	within coordinates of	SNP	C/T		C	T	
+rs30232273	9	121113075	MGI:1921622	Ulk4	within coordinates of	SNP	C/T		T	C	
+rs30232273	9	121113075	MGI:7081733	Rr193511	within coordinates of	SNP	C/T		T	C	
+rs30241746	9	121113214	MGI:1921622	Ulk4	within coordinates of	SNP	C/T	T	T	C	
+rs30241746	9	121113214	MGI:7081733	Rr193511	within coordinates of	SNP	C/T	T	T	C	
+rs6342271	12	85872322	MGI:2443657	Ttll5	within coordinates of	SNP	A/C	C	C	C	
+rs6342271	12	85872322	MGI:7153930	Rr265708	within coordinates of	SNP	A/C	C	C	C	
+rs6342372	12	85872388	MGI:2443657	Ttll5	within coordinates of	SNP	A/T	A	A	A	
+rs6342372	12	85872388	MGI:7153930	Rr265708	within coordinates of	SNP	A/T	A	A	A	
+rs6339315	12	85878314	MGI:2443657	Ttll5	within coordinates of	SNP	A/C	A	A	A	
+rs6215806	12	85891890	MGI:2443657	Ttll5	within coordinates of	SNP	A/G	G	G	G	
+rs6216957	12	85892092	MGI:2443657	Ttll5	within coordinates of	SNP	C/T	C	C	C	
+rs6217454	12	85892185	MGI:2443657	Ttll5	within coordinates of	SNP	C/T	T	T	T	
+rs6300780	12	85902519	MGI:2443657	Ttll5	within coordinates of	SNP	C/T	C	C	C	
+rs13481571	12	85990625	MGI:2443657	Ttll5	within coordinates of	SNP	G/T	T	G	G	
+rs13481571	12	85990625	MGI:7150091	Rr261869	within coordinates of	SNP	G/T	T	G	G	
+rs6272949	12	86019006	MGI:2443657	Ttll5	within coordinates of	SNP	A/C/T	T	T	T	
+rs6272949	12	86019006	MGI:5477025	Gm26531	within coordinates of	SNP	A/C/T	T	T	T	
+rs6356569	12	86035968	MGI:2443657	Ttll5	within coordinates of	SNP	A/G	G	G	G	
+rs6356569	12	86035968	MGI:7158034	Rr269812	within coordinates of	SNP	A/G	G	G	G	
+rs6187089	12	86041260	MGI:2443657	Ttll5	within coordinates of	SNP	A/G	A	A	A	
+rs6187089	12	86041260	MGI:6365940	Gm51989	within coordinates of	SNP	A/G	A	A	A	
+rs3692226	12	86064015	MGI:2443657	Ttll5	within coordinates of	SNP	A/C	A		C	
+rs13465251	13	34258637	MGI:107861	Tubb2a	within coordinates of	SNP	A/G	A	G	G	
+rs32360656	15	98830429	MGI:107804	Tuba1b	within coordinates of	SNP	C/T	C	C	T	
+rs32360656	15	98830429	MGI:6155101	Gm49450	within coordinates of	SNP	C/T	C	C	T	
+rs32360656	15	98830429	MGI:7200628	Rr312406	within coordinates of	SNP	C/T	C	C	T	
+rs32333330	15	98928657	MGI:1095409	Tuba1c	within coordinates of	SNP	C/G	C	G	G	
+rs32333330	15	98928657	MGI:5672787	Cpgi7688	within coordinates of	SNP	C/G	C	G	G	
+rs32333330	15	98928657	MGI:7200636	Rr312414	within coordinates of	SNP	C/G	C	G	G	
+rs32460203	15	98930865	MGI:1095409	Tuba1c	within coordinates of	SNP	C/T	C	C	T	
+rs32460203	15	98930865	MGI:7200636	Rr312414	within coordinates of	SNP	C/T	C	C	T	
