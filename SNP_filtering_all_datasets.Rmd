@@ -8,9 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 #knitr::opts_chunk$set(echo = TRUE)
 
-
 .libPaths("/g/data/nm24/comp_analysis_rlib")
-
 
 library(biomaRt)
 library(VariantAnnotation)
@@ -23,7 +21,6 @@ library(dplyr)
 library(tidyr)
 library(data.table)
 library(RCurl)
-
 
 m_ensembl = useEnsembl(biomart="snp",dataset="mmusculus_snp")
 
@@ -52,7 +49,7 @@ annos <- c(get_annos("Nodal_Signalling_GO.csv"),
            get_annos("FGF_Signalling_GO.csv"),
            get_annos("Pusapati_cilia_or_pathy.csv"))
 
-
+annos_for_Mitts <- get_annos("sign_genes_APS_node_for_SNPs.csv")
 ## write all annos to file:
 
 unique_annos <- annos[!duplicated(annos)]
@@ -75,19 +72,28 @@ write.csv(annos_to_file, "Combined_Ontology.csv")
 SNP_filter <- function(vcf, entrez_ID_list, var_type){
   # Filter for High Quality Variants FI(final-pass) 
   vcf <- vcf[vcf@assays@data@listData$FI==1]
+  print(length(vcf@rowRanges@ranges@start))
   # Keep SNPs for genes identified in the Gene Ontology List
-  vcf <- vcf[lapply(vcf@info@listData$CSQ, function(x) strsplit(x,split="\\|")[[1]][4]) %in% names(annos)]
+  vcf <- vcf[lapply(vcf@info@listData$CSQ, function(x) strsplit(x,split="\\|")[[1]][4]) %in% names(entrez_ID_list)]
   # Three different filters to Keep SNPs, only one needs to pass
   
   # Keep SNPs of High Impact from EnsemblVEP - these are severe impact to the protein (i.e., stop gained/lost, severe splice variants etc.,)
   list_1 <- lapply(vcf@info@listData$CSQ, function(x) strsplit(x, split="\\|")[[1]][3]) == "HIGH"
+  print("list1")
+  print(length(list_1[list_1==T]))
   
   # Keep SNPs with high Genome Evolutionary Rate Scores (GERP) - only metric for non-protein functional prediction
   list_2 <- lapply(vcf@info@listData$CSQ, function(x) strsplit(x, split="\\|")[[1]][39]) >= 5
   list_2[is.na(list_2)] <- F
+  print("list2")
+  print(length(list_2[list_2==T]))
   
   # Keep SNPs with Deleteriously Predictions from SIFT
   list_3 <- unlist(lapply(vcf@info@listData$CSQ, function(x) str_detect(x, "deleterious\\(")))
+  print("list3")
+  print(length(list_3[list_3==T]))
+  
+  str(vcf@rowRanges)
   
   vcf <- vcf[list_1|list_2|list_3]
   
@@ -126,6 +132,8 @@ BM_annotate <- function(vcf){
     return(x)
   })))
   
+  
+  
   #disgusting but it'll do
   colnames(csq_info) <- c("Allele","Consequence","IMPACT",
   "SYMBOL","Gene","Feature_type","Feature","BIOTYPE","EXON",
@@ -141,6 +149,8 @@ BM_annotate <- function(vcf){
   
   # add the entrezID as a column for merging
   vcf$entrezgene_id <- entrezIDs
+  
+  View(vcf)
   
   # don't know why I did this but I get the entrezgene ID again for some reason
   tmp <- getBM(attributes=c('entrezgene_id'), values = na.omit(entrezIDs), filters = 'entrezgene_id', 
@@ -166,22 +176,32 @@ BM_annotate <- function(vcf){
     summarise_all(list(~ paste(., collapse = ",")))
   
   # get further SNP information from Biomart - you need to get this info from a different mart (ensembl variation)  
-  snp_info <- getBM(attributes=c('refsnp_id',  'validated', 'consequence_type_tv','sift_prediction', 
+  if (length(unique(vcf$Existing_variation)) > 1){
+    
+    snp_info <- getBM(attributes=c('refsnp_id',  'validated', 'consequence_type_tv','sift_prediction', 
                                  'ensembl_gene_name', 'ensembl_gene_stable_id',
                                  'motif_name','motif_score_delta', 'reg_feature_stable_id', 'reg_consequence_types'),
                     filters='snp_filter', values=vcf$Existing_variation, mart=m_ensembl, verbose=T) %>% group_by(refsnp_id) %>% 
     summarise_all(list(~ paste(., collapse = ",")))
-  
-  # just renaming column for merging
+    # just renaming column for merging
   colnames(snp_info)[colnames(snp_info) == "refsnp_id"] <- "Existing_variation"
+  df_list <- list(vcf, phenos,GO,reactome, snp_info)
+  
+  } else {
+    snp_info = data.frame()
+    df_list <- list(vcf, phenos,GO,reactome)}
+  
+  
   
   # combines everything into a single dataframe.
-  df_list <- list(vcf, phenos,GO,reactome, snp_info)
+  
   databases <- Reduce(function(x, y) merge(x, y, all=TRUE), df_list)
                       
   return(databases)
    
 }
+
+BM_SNPs_v5 <- BM_annotate(Funct_SNPs_inv)
 
 ```
 
@@ -200,6 +220,8 @@ load_data_REL_2021 <- function(vcf_file_path){
 
 SNP_data <- load_data_REL_2021("unique_pred.vcf.gz")
 
+#Exon_SNPs <- SNP_filter(SNP_data, c(annos, annos_for_Mitts), AllVariants())
+
 Exon_SNPs <- SNP_filter(SNP_data, annos, AllVariants())
 
 BM_SNPs_v4 <- BM_annotate(Exon_SNPs)
@@ -207,7 +229,7 @@ BM_SNPs_v4 <- BM_annotate(Exon_SNPs)
 BM_SNPs_v4
 
 df <- as.data.frame(BM_SNPs_v4)
-
+df
 # Write the data frame to a file
 fwrite(df, "REL2021-SNPs.tsv", sep = "\t")
 
@@ -235,9 +257,9 @@ load_data <- function(control_vcf_file_path, test_vcf_file_path){
 SNP_1505_data <- load_data("pred_sort_C57BL_6NJ.mgp.v5.snps.dbSNP142.GRCm39.vcf.gz",
                            "pred_sort_C3H_HeH.mgp.v5.snps.dbSNP142.GRCm39.vcf.gz")
 
-C3H_data <- load_data_REL_2021("pred_C3H_HeH.mgp.v5.snps.dbSNP142.GRCm39.vcf.gz")
+#C3H_data <- load_data_REL_2021("pred_C3H_HeH.mgp.v5.snps.dbSNP142.GRCm39.vcf.gz")
 
-B6_data <- load_data_REL_2021("pred_sort_C57BL_6NJ.mgp.v5.snps.dbSNP142.GRCm39.vcf.gz")
+#B6_data <- load_data_REL_2021("pred_sort_C57BL_6NJ.mgp.v5.snps.dbSNP142.GRCm39.vcf.gz")
 
 
 #SNP_data <- load_data("results_C57Bl6_v7.vcf.gz","results_C3H_HeH_v6.vcf.gz")
@@ -245,12 +267,14 @@ B6_data <- load_data_REL_2021("pred_sort_C57BL_6NJ.mgp.v5.snps.dbSNP142.GRCm39.v
 # cause I lift-overed it used mm39.fasta but it just needs to rename the genome
 genome(SNP_1505_data) <- "mm39"
 
+#Funct_SNPs <- SNP_filter(SNP_1505_data, c(annos, annos_for_Mitts), AllVariants())
+
 Funct_SNPs <- SNP_filter(SNP_1505_data, annos, AllVariants())
 
 BM_SNPs_v3 <- BM_annotate(Funct_SNPs)
 
 df <- as.data.frame(BM_SNPs_v3)
-
+df
 # Write the data frame to a file
 fwrite(df, "REL1505-SNPs.tsv", sep = "\t")
 
@@ -283,7 +307,7 @@ file_2 <- file %>% dplyr::filter((C3H.HeJ != C57BL.6J & C3H.HeJ != "" & C57BL.6J
 
 file_3 <- file %>% dplyr::filter((C3H.HeJ != C57BL.6J & C3H.HeJ != "" & C57BL.6J != "")) %>%  filter(Gene.Symbol %in% names(annos))
 
-rm(file)
+
 
 fetch_SNPs_from_BM <- function(mgi_query_snps, annos){
   
@@ -377,23 +401,165 @@ fwrite(sifted_just_C3H_HEH, "MGI_query_grcm39_results_sifted.csv")
 
 UTR_variants_from_C3H <- snps_filtered_from_just_C3H_HEH %>% filter(str_detect(consequence_type_tv,"3_prime_UTR_variant|5_prime_UTR_variant"))
 
-splicing_variants_from_C3H <- snps_filtered_from_just_C3H_HEH %>% filter(str_detect(consequence_type_tv,"donor|acceptor"))
+high_impact_variants_from_C3H <- snps_filtered_from_just_C3H_HEH %>% filter(str_detect(consequence_type_tv,"acceptor|donor|frameshift_variant|stop_gained|stop_lost|start_lost|transcript_ablation|	transcript_amplification"))
 
 
 
-fwrite(splicing_variants_from_C3H, "GRCm39_splice_variants.csv")
+fwrite(high_impact_variants_from_C3H, "GRCm39_high_impact_variants.csv")
+
+high_impact_variants_from_C3H
 
 sifted_just_C3H_HEH
+
+snps_filtered_from_just_C3H_HEH
+
+
+```
+
+```{r}
+# convert df to Grange. 
+snp_gr <-makeGRangesFromDataFrame(snps_filtered_from_just_C3H_HEH, seqnames.field = "Chromosome", 
+                                  start.field = "Coordinate..GRCm39.", end.field = "Coordinate..GRCm39.")
+# Download bw file
+url <- "http://ftp.ensembl.org/pub/current_compara/conservation_scores/91_mammals.gerp_conservation_score/gerp_conservation_scores.mus_musculus.GRCm39.bw"
+filename <- "gerp_conservation_scores.mus_musculus.GRCm39.bw" 
+# big download so progress is handy
+#download.file(url, destfile = filename, mode = "wb", 
+#          method = "curl", extra = "-L", 
+#          quiet = FALSE, 
+#          timeout = 60, 
+#          progress = function(downloaded, total) {
+#            message(paste0("Downloaded ", round(downloaded/total * 100, 1), "% of ", file_out))
+#            return(TRUE)
+#          })
+
+
+library(rtracklayer)
+library(data.table)
+
+# Create a connection to the BigWig file
+bw_conn <- BigWigFile(filename)
+
+
+
+seqinfo(snp_gr) <- seqinfo(bw_conn)[seqlevels(snp_gr)]
+
+bw_data_filtered <- import(bw_conn, which = snp_gr)
+
+
+# seqlevels fix for my SNP data
+#bw_data <- renameSeqlevels(bw_data, paste0("chr", seqlevels(bw_data)))
+#seqlevels(bw_data)[27] <- "chrM"
+
+# reduce to overlaps and sort
+bw_data_subset <- subsetByOverlaps(bw_data_filtered, snp_gr, ignore.strand=T)
+snp_gr_subset <- subsetByOverlaps(snp_gr, bw_data_filtered, ignore.strand=T)
+sorted_snp_gr <- sort(snp_gr_subset)
+sorted_bw <- sort(bw_data_subset)
+
+# transfer  score to SNP grange object
+mcols(sorted_snp_gr)$score <- mcols(sorted_bw)$score
+
+# convert to dataframe and merge by genomic positon
+GERP_df <-data.frame(sorted_snp_gr)
+merged_df <- merge(GERP_df, snps_filtered_from_just_C3H_HEH, by.y =c("Chromosome", "Coordinate..GRCm39."), by.x = c("seqnames", "start"))
+
+GERP_C3H_JAX_df <- merged_df %>% filter(score > 5)
+GERP_C3H_JAX_df
+
+fwrite(GERP_C3H_JAX_df, "JAX_GRCm39_GERP_variants.csv")
 
 ```
 
 
 ```{r}
 
-common_variants <- intersect(BM_SNPs_v4$Existing_variation, BM_SNPs_v3$Existing_variation)
+#common_variants <- intersect(BM_SNPs_v4$Existing_variation, BM_SNPs_v3$Existing_variation)
 
-common_variants <- intersect(common_variants, sifted_just_C3H_HEH$refsnp_id)
+common_variants <- intersect(BM_SNPs_v4$Existing_variation, sifted_just_C3H_HEH$refsnp_id)
 cons_in_MGP <- BM_SNPs_v4[BM_SNPs_v4$Existing_variation %in% common_variants, ]
 
 cons_in_MGP
+```
+
+
+```{r}
+
+Mitt_vars <- read.table(file = 'variants_unique_Mittenzwieg.txt', sep = '\t', header = TRUE)
+
+snp_exp_REL_2021 <- SNP_filter(SNP_data, annos_for_Mitts, AllVariants())
+
+BM_SNPs_v5 <- BM_annotate(snp_exp_REL_2021)
+
+BM_SNPs_v5
+
+fwrite(BM_SNPs_v5, "sifted_variants_mittz_REL2021.csv")
+
+
+snps_expressed_gast <- fetch_SNPs_from_BM(Mitt_vars, annos_for_Mitts)
+
+sifted_expressed_gast <- snps_expressed_gast %>% filter(str_detect(sift_prediction, 'deleterious'))
+
+sifted_expressed_gast
+
+fwrite(sifted_expressed_gast, "sifted_variants_mittz.csv")
+
+
+snp_gr <-makeGRangesFromDataFrame(snps_expressed_gast, seqnames.field = "Chromosome", 
+                                  start.field = "Coordinate..GRCm39.", end.field = "Coordinate..GRCm39.")
+
+snp_gr <- unique(snp_gr)
+
+
+seqinfo(snp_gr) <- seqinfo(bw_conn)[seqlevels(snp_gr)]
+
+bw_data_filtered <- import(bw_conn, which = snp_gr)
+
+
+# seqlevels fix for my SNP data
+#bw_data <- renameSeqlevels(bw_data, paste0("chr", seqlevels(bw_data)))
+#seqlevels(bw_data)[27] <- "chrM"
+
+# Subset bw_data and snp_gr to include only overlapping ranges
+bw_data_subset <- subsetByOverlaps(bw_data_filtered, snp_gr, ignore.strand=TRUE)
+snp_gr_subset <- subsetByOverlaps(snp_gr, bw_data_filtered, ignore.strand=TRUE)
+
+# Sort and remove duplicates from both GRanges objects
+sorted_snp_gr <- sort(unique(snp_gr_subset))
+sorted_bw <- sort(unique(bw_data_subset))
+
+# Find overlaps between sorted_snp_gr and sorted_bw
+overlaps <- findOverlaps(sorted_snp_gr, sorted_bw, ignore.strand=TRUE)
+
+# Get the indices of the overlapping ranges
+snp_indices <- queryHits(overlaps)
+bw_indices <- subjectHits(overlaps)
+
+# Create an empty 'score' column and assign the scores based on the overlap indices
+mcols(sorted_snp_gr)$score <- NA
+mcols(sorted_snp_gr)$score[snp_indices] <- mcols(sorted_bw)$score[bw_indices]
+
+# Check the result
+sorted_snp_gr
+
+# convert to dataframe and merge by genomic positon
+GERP_df <-data.frame(sorted_snp_gr)
+merged_df <- merge(GERP_df, snps_expressed_gast, by.y =c("Chromosome", "Coordinate..GRCm39."), by.x = c("seqnames", "start"))
+
+GERP_Mittz_JAX_df <- merged_df %>% filter(score > 5)
+GERP_Mittz_JAX_df
+
+fwrite(GERP_Mittz_JAX_df, "JAX_GRCm39_Mittz_GERP_variants.csv")
+```
+
+
+```{r}
+enhancers_in_Ulk4 <- read.table(file = 'enhancers_in_Ulk4.txt', sep = '\t', header = TRUE)
+
+enhancers_in_Ulk4$SNP.ID..GRCm39. <- enhancers_in_Ulk4$Uploaded_variation
+
+
+enhancer_info <- fetch_SNPs_from_BM(enhancers_in_Ulk4, annos)
+
+fwrite(as.data.frame(enhancer_info), "JAX_GRCm39_enhancer_variants.csv")
 ```
